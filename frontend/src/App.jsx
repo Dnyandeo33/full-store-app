@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
+
 // import components
 import AddProduct from './components/AddProduct';
 import DeleteProduct from './components/DeleteProduct';
@@ -22,6 +23,7 @@ export const myData = createContext();
 const App = () => {
     const [products, setProducts] = useState([]);
 
+    // get all products
     useEffect(() => {
         GetProductView().then((products) => {
             setProducts(products);
