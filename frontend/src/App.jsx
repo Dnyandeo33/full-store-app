@@ -16,6 +16,7 @@ import Products from './components/products';
 import GetProductView from './view/getProductView';
 
 import './App.css';
+import PrivateRoutes from './utils/PrivateRoutes';
 
 // Initialize context
 export const myData = createContext();
@@ -37,9 +38,11 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<Products />} />
                     <Route path="/:id" element={<SingleProduct />} />
-                    <Route path="/update/:id" element={<UpdateProduct />} />
-                    <Route path="/delete/:id" element={<DeleteProduct />} />
-                    <Route path="/add-product" element={<AddProduct />} />
+                    <Route element={<PrivateRoutes />}>
+                        <Route path="/add-product" element={<AddProduct />} />
+                        <Route path="/update/:id" element={<UpdateProduct />} />
+                        <Route path="/delete/:id" element={<DeleteProduct />} />
+                    </Route>
                     <Route path="/sign-up" element={<SignUp />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/logout" element={<Logout />} />
