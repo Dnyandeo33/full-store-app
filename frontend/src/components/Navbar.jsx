@@ -4,6 +4,7 @@ import Cookies from 'universal-cookie';
 const NavBar = () => {
     const getCookies = new Cookies();
     const isCookieSet = getCookies.get('token');
+    console.log(isCookieSet);
     return (
         <div className="mx-auto max-w-7xl px-6 sm:px-6 lg:px-8 ">
             <div className="relative flex h-16 justify-between">

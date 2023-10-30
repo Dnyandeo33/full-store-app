@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import Cookies from 'universal-cookie';
-import Cookies from 'js-cookie';
 import validateEmail from '../utils/validateEmail';
 import validatePassword from '../utils/validatePassword';
 
@@ -84,10 +82,7 @@ const Login = () => {
                         userLogin
                     );
                     const token = res.data.token;
-                    const setCookies = Cookies.set('token', token, {
-                        sameSite: 'Lax',
-                        secure: true
-                    });
+                    const setCookies = (document.cookie = `token = ${token}`);
                     if (setCookies) {
                         navigate('/');
                     } else {
